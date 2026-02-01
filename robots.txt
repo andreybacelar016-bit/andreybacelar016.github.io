@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://SEU-DOMINIO-AQUI.com/sitemap.xml
+Sitemap: https://Beleza-apropriada.github.io/sitemap.xml
 
 # Crawl-delay (evita sobrecarga)
 Crawl-delay: 1
