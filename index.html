@@ -1,556 +1,71 @@
-<!DOCTYPE html>
+
+   <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Roupa Forte & Beleza Premium | Andrey Bacelar - Maquiagem e Estética</title>
-    <meta name="description" content="Descubra os melhores produtos de beleza, maquiagem e estética. Base premium, corretivo profissional, produtos para cabelos lisos e muito mais. Recomendado por Andrey Bacelar.">
-    <meta name="keywords" content="roupa forte, comprar base, comprar corretivo, cabelos lisos, roupa estampada, maquiagem, beleza, estética, andrey bacelar, base maquiagem, corretivo alta cobertura">
-    <meta name="author" content="Andrey Bacelar">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://andreybacelar016.github.io/">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://andreybacelar016.github.io/">
-    <meta property="og:title" content="Roupa Forte & Beleza Premium | Andrey Bacelar">
-    <meta property="og:description" content="Produtos selecionados de beleza e estética com os melhores preços. Recomendações confiáveis de Andrey Bacelar.">
-    <meta property="og:image" content="https://andreybacelar016.github.io/og-image.jpg">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Beleza Premium | Andrey Bacelar">
-    <meta name="twitter:description" content="Melhores produtos de beleza e estética selecionados">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- JSON-LD Dados Estruturados -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Beleza & Estética Premium",
-      "url": "https://andreybacelar016.github.io/",
-      "description": "Produtos selecionados de beleza e estética por Andrey Bacelar",
-      "author": {
-        "@type": "Person",
-        "name": "Andrey Bacelar",
-        "jobTitle": "Especialista em Beleza e Estética"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://andreybacelar016.github.io/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Produtos de Beleza Recomendados",
-      "description": "Lista curada de produtos de beleza e estética",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Roupa Forte - Polo Premium",
-          "url": "https://Beleza-apropriada/#roupa-forte"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Base e Corretivo Profissional",
-          "url": "https://Beleza-aprpriada.github.io/#base-corretivo"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Produtos para Cabelos Lisos",
-          "url": "https://andreybacelar016.github.io/#cabelos-lisos"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "Roupa Estampada",
-          "url": "https://andreybacelar016.github.io/#roupa-estampada"
-        }
-      ]
-    }
-    </script>
-    
-    <style>
-        :root {
-            --rose-gold: #B76E79;
-            --deep-rose: #8B4C5C;
-            --cream: #FFF8F3;
-            --charcoal: #2C2C2C;
-            --gold: #D4AF37;
-            --soft-pink: #F8E8E8;
-            --shadow: rgba(0, 0, 0, 0.1);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, var(--cream) 0%, var(--soft-pink) 100%);
-            color: var(--charcoal);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, var(--rose-gold) 0%, transparent 70%);
-            opacity: 0.05;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        header {
-            text-align: center;
-            padding: 80px 20px 60px;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), transparent);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--rose-gold), transparent);
-        }
-        
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 900;
-            color: var(--deep-rose);
-            letter-spacing: -1px;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px var(--shadow);
-            animation: fadeInUp 1s ease;
-        }
-        
-        .subtitle {
-            font-size: clamp(1rem, 2vw, 1.3rem);
-            color: var(--rose-gold);
-            font-weight: 300;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            animation: fadeInUp 1s ease 0.2s backwards;
-        }
-        
-        .affiliate-badge {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, var(--rose-gold), var(--deep-rose));
-            color: white;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            box-shadow: 0 10px 30px rgba(183, 110, 121, 0.3);
-            animation: fadeInUp 1s ease 0.4s backwards, pulse 2s ease infinite;
-        }
-        
-        .trust-message {
-            max-width: 700px;
-            margin: 40px auto 0;
-            padding: 30px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px var(--shadow);
-            animation: fadeInUp 1s ease 0.6s backwards;
-        }
-        
-        .trust-message h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--deep-rose);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-        
-        .trust-message p {
-            color: #666;
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-        
-        .products-container {
-            max-width: 1400px;
-            margin: 60px auto;
-            padding: 0 20px 80px;
-        }
-        
-        .category-section {
-            margin-bottom: 80px;
-        }
-        
-        .category-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--deep-rose);
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            animation: fadeInUp 1s ease;
-        }
-        
-        .category-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--gold);
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            animation: fadeIn 1s ease 0.3s backwards;
-        }
-        
-        .product-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px var(--shadow);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            animation: fadeInUp 0.6s ease backwards;
-        }
-        
-        .product-card:nth-child(1) { animation-delay: 0.1s; }
-        .product-card:nth-child(2) { animation-delay: 0.2s; }
-        .product-card:nth-child(3) { animation-delay: 0.3s; }
-        .product-card:nth-child(4) { animation-delay: 0.4s; }
-        .product-card:nth-child(5) { animation-delay: 0.5s; }
-        .product-card:nth-child(6) { animation-delay: 0.6s; }
-        
-        .product-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(183, 110, 121, 0.25);
-        }
-        
-        .product-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--gold);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 10;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-        }
-        
-        .product-image {
-            height: 300px;
-            background: linear-gradient(135deg, var(--soft-pink), var(--cream));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .product-image::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transform: rotate(45deg);
-            animation: shimmer 3s infinite;
-        }
-        
-        .product-content {
-            padding: 30px;
-        }
-        
-        .product-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: var(--charcoal);
-            margin-bottom: 15px;
-            font-weight: 600;
-            min-height: 60px;
-        }
-        
-        .product-description {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        
-        .product-cta {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, var(--rose-gold), var(--deep-rose));
-            color: white;
-            text-decoration: none;
-            text-align: center;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(183, 110, 121, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .product-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .product-cta:hover::before {
-            left: 100%;
-        }
-        
-        .product-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(183, 110, 121, 0.4);
-        }
-        
-        footer {
-            background: linear-gradient(135deg, var(--deep-rose), var(--rose-gold));
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-            margin-top: 80px;
-        }
-        
-        footer p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-        
-        footer a {
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) rotate(45deg); }
-        }
-        
-        @media (max-width: 768px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .trust-message {
-                padding: 25px;
-                margin-top: 30px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beleza & Estética Premium | Andrey Bacelar</title>
+<meta name="description" content="Seleção premium de produtos de beleza, estética e moda recomendados por Andrey Bacelar.">
+<link rel="canonical" href="https://andreybacelar016.github.io/">
+
+<style>
+body{
+    margin:0;
+    font-family:Montserrat,Arial,sans-serif;
+    background:#fff8f3;
+    color:#2c2c2c;
+}
+header{
+    padding:70px 20px;
+    text-align:center;
+}
+h1{
+    font-family:Playfair Display,serif;
+    color:#8b4c5c;
+    font-size:3rem;
+}
+.category-grid{
+    max-width:1000px;
+    margin:60px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:40px;
+    padding:0 20px;
+}
+.category-card{
+    background:white;
+    padding:50px 30px;
+    border-radius:20px;
+    box-shadow:0 10px 40px rgba(0,0,0,.1);
+    text-align:center;
+    text-decoration:none;
+    color:#2c2c2c;
+}
+.category-card:hover{
+    transform:translateY(-5px);
+}
+footer{
+    padding:40px;
+    text-align:center;
+    background:#8b4c5c;
+    color:white;
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Beleza & Estética Premium</h1>
-        <p class="subtitle">Sua Transformação Começa Aqui</p>
-        <span class="affiliate-badge">🏆 Recomendado por Andrey Bacelar</span>
-        
-        <div class="trust-message">
-            <h2>✨ Confiança e Qualidade</h2>
-            <p>Olá! Sou <strong>Andrey Bacelar</strong>, especialista em beleza e estética. Selecionei cuidadosamente cada produto desta página para garantir que você tenha acesso apenas ao melhor do mercado. Todos os produtos são de <strong>afiliação verificada</strong>, oferecendo segurança, qualidade e os melhores preços. Sua satisfação e transformação são minha prioridade! 💖</p>
-        </div>
-    </header>
-    
-    <main class="products-container">
-        <section class="category-section" id="roupa-forte">
-            <h2 class="category-title">Roupa Forte 💪</h2>
-            <div class="products-grid">
-                <article class="product-card">
-                    <span class="product-badge">Destaque</span>
-                    <div class="product-image">👕</div>
-                    <div class="product-content">
-                        <h3 class="product-title">Camiseta Polo Masculina Premium</h3>
-                        <p class="product-description">Polo em poliamida de alta qualidade, perfeita para looks casuais e sofisticados. Conforto e estilo em uma peça única.</p>
-                        <a href="https://produto.mercadolivre.com.br/MLB-5625625032-camiseta-polo-masculina-poliamida-premium-camisa-c-boto-_JM?searchVariation=192826492093" class="product-cta" target="_blank" rel="nofollow noopener">Ver Produto</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-        
-        <section class="category-section" id="base-corretivo">
-            <h2 class="category-title">Base & Corretivo 💄</h2>
-            <div class="products-grid">
-                <article class="product-card">
-                    <span class="product-badge">Mais Vendido</span>
-                    <div class="product-image">🎨</div>
-                    <div class="product-content">
-                        <h3 class="product-title">Kit Maquiagem Profissional</h3>
-                        <p class="product-description">Bases e corretivos de alta cobertura para todos os tipos de pele. Acabamento impecável e duração prolongada.</p>
-                        <a href="https://produto.https://amzn.to/3ZHkLEQ/beleza-cuidado-pessoal/maquiagem/base" class="product-cta" target="_blank" rel="nofollow noopener">Comprar Base</a>
-                    </div>
-                </article>
-                
-                <article class="product-card">
-                    <span class="product-badge">Premium</span>
-                    <div class="product-image">✨</div>
-                    <div class="product-content">
-                        <h3 class="product-title">Corretivo Alta Cobertura</h3>
-                        <p class="product-description">Corretivo profissional que disfarça imperfeições e ilumina a pele. Textura cremosa e fácil aplicação.</p>
-                        <a href="https://produto.https://amzn.to/3OckTJX/beleza-cuidado-pessoal/maquiagem/corretivo" class="product-cta" target="_blank" rel="nofollow noopener">Comprar Corretivo</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-        
-        <section class="category-section" id="cabelos-lisos">
-            <h2 class="category-title">Cabelos Lisos Perfeitos 💁‍♀️</h2>
-            <div class="products-grid">
-                <article class="product-card">
-                    <span class="product-badge">Top #1</span>
-                    <div class="product-image">💇‍♀️</div>
-                    <div class="product-content">
-                        <h3 class="product-title">Tratamento Alisamento Profissional</h3>
-                        <p class="product-description">Produtos profissionais para alisamento e hidratação profunda. Cabelos lisos, brilhantes e saudáveis.</p>
-                        <a href="https://produto.https://go.hotmart.com/L104138119N?dp=1/beleza-cuidado-pessoal/cuidados-cabelo/alisamento" class="product-cta" target="_blank" rel="nofollow noopener">Ver Produtos</a>
-                    </div>
-                </article>
-                
-                <article class="product-card">
-                    <span class="product-badge">Novidade</span>
-                    <div class="product-image">🌟</div>
-                    <div class="product-content">
-                        <h3 class="product-title">Chapinha Profissional</h3>
-                        <p class="product-description">Chapinha de cerâmica com tecnologia iônica para cabelos perfeitamente lisos sem danos.</p>
-                        <a href="https://produto.https://go.hotmart.com/H104158741K?dp=1/beleza-cuidado-pessoal/cuidados-cabelo/chapinha" class="product-cta" target="_blank" rel="nofollow noopener">Comprar Chapinha</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-        
-        <section class="category-section" id="roupa-estampada">
-            <h2 class="category-title">Roupa Estampada 🌺</h2>
-            <div class="products-grid">
-                <article class="product-card">
-                    <span class="product-badge">Tendência</span>
-                    <div class="product-image">👗</div>
-                    <div class="product-content">
-                        <h3 class="product-title">Coleção Estampas Exclusivas</h3>
-                        <p class="product-description">Peças únicas com estampas vibrantes e modernas. Destaque-se com muito estilo e personalidade.</p>
-                        <a href="https://lista.https://amzn.to/4kd4C3x/roupas-estampadas" class="product-cta" target="_blank" rel="nofollow noopener">Ver Coleção</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <p><strong>Andrey Bacelar</strong> - Marketeiro Afiliado Oficial</p>
-        <p>Todos os produtos são links de afiliação. Ao comprar através deles, você me ajuda a continuar trazendo as melhores recomendações! 💖</p>
-        <p style="margin-top: 20px;">© 2025 - Beleza & Estética Premium. Todos os direitos reservados.</p>
-    </footer>
-    
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-        
-        document.querySelectorAll('a[href^="http"]').forEach(link => {
-            link.setAttribute('rel', 'nofollow noopener');
-            link.setAttribute('target', '_blank');
-        });
-        
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.product-card, .category-section').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+<header>
+    <h1>Beleza & Estética Premium</h1>
+    <p>Produtos selecionados com foco em qualidade, estética e confiança.</p>
+</header>
+
+<main class="category-grid">
+    <a class="category-card" href="moda.html">👕 Moda Masculina</a>
+    <a class="category-card" href="maquiagem.html">💄 Maquiagem</a>
+</main>
+
+<footer>
+    <p>© 2025 — Andrey Bacelar</p>
+</footer>
 </body>
 </html>
