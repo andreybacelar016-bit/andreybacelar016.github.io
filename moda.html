@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Straw — Moda e Identidade</title>
+  <meta name="description" content="A moda Straw é construída a partir de símbolos, texturas e referências culturais. Peças que comunicam identidade.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;900&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --burnt-wood: #1a1410;
+      --deep-charcoal: #2b2420;
+      --copper-rust: #b87333;
+      --aged-gold: #d4af37;
+      --warm-bronze: #cd7f32;
+      --cream-silk: #f5f3ef;
+      --smoky-grey: #4a4038;
+    }
+
+    body {
+      min-height: 100vh;
+      background-image: url('https://audaces.com/wp-content/uploads/2022/03/estilos-de-moda.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--cream-silk);
+      position: relative;
+      font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
+    }
+
+    /* Overlay escuro rústico com textura */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: 
+        linear-gradient(135deg, rgba(26, 20, 16, 0.88) 0%, rgba(43, 36, 32, 0.82) 100%),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 0, 0, 0.05) 2px,
+          rgba(0, 0, 0, 0.05) 4px
+        );
+      backdrop-filter: blur(8px) saturate(1.2);
+      z-index: 0;
+    }
+
+    /* Efeito de vinheta */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.7);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      padding: 100px 12%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Botão voltar */
+    .back-button {
+      position: fixed;
+      top: 40px;
+      left: 40px;
+      z-index: 100;
+      text-decoration: none;
+      color: var(--aged-gold);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border: 2px solid var(--copper-rust);
+      background: rgba(26, 20, 16, 0.8);
+      backdrop-filter: blur(10px);
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+      opacity: 0;
+      animation: fadeInLeft 1s ease-out 0.3s forwards;
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .back-button:hover {
+      background: var(--copper-rust);
+      color: var(--burnt-wood);
+      border-color: var(--aged-gold);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+      transform: translateX(-5px);
+    }
+
+    .back-button::before {
+      content: '←';
+      margin-right: 8px;
+      font-size: 1.2rem;
+    }
+
+    /* Logo */
+    .logo {
+      position: fixed;
+      top: 30px;
+      right: 40px;
+      z-index: 100;
+      width: 100px;
+      height: auto;
+      opacity: 0;
+      animation: fadeInRight 1s ease-out 0.5s forwards;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 8px 20px rgba(212, 175, 55, 0.4));
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    header {
+      margin-bottom: 80px;
+      opacity: 0;
+      animation: fadeInUp 1.2s ease-out 0.5s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 900;
+      letter-spacing: 10px;
+      text-transform: uppercase;
+      color: var(--aged-gold);
+      text-shadow: 
+        0 0 30px rgba(212, 175, 55, 0.4),
+        0 0 60px rgba(212, 175, 55, 0.2),
+        4px 4px 15px rgba(0, 0, 0, 0.8);
+      position: relative;
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+
+    header h1::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 180px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--warm-bronze), transparent);
+      animation: expandLine 1.5s ease-out 1s forwards;
+      transform-origin: left;
+      transform: scaleX(0);
+    }
+
+    @keyframes expandLine {
+      to { transform: scaleX(1); }
+    }
+
+    header p {
+      max-width: 800px;
+      line-height: 2;
+      color: var(--cream-silk);
+      font-size: 1.3rem;
+      opacity: 0.95;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .section {
+      margin-bottom: 80px;
+      opacity: 0;
+      animation: fadeInUp 1.2s ease-out 0.8s forwards;
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      margin-bottom: 35px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--copper-rust);
+      font-weight: 600;
+      position: relative;
+      display: inline-block;
+      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .section h2::before {
+      content: '⚜';
+      position: absolute;
+      left: -50px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--aged-gold);
+      font-size: 2rem;
+      opacity: 0.7;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    .section p {
+      max-width: 850px;
+      line-height: 2.1;
+      color: var(--cream-silk);
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+      opacity: 0.93;
+    }
+
+    .products {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .product {
+      border: 2px solid var(--copper-rust);
+      background: linear-gradient(135deg, rgba(184, 115, 51, 0.08), rgba(205, 127, 50, 0.12));
+      padding: 40px 30px;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        inset 0 0 20px rgba(212, 175, 55, 0.05);
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+      animation: productReveal 0.8s ease-out forwards;
+    }
+
+    .product:nth-child(1) { animation-delay: 1s; }
+    .product:nth-child(2) { animation-delay: 1.2s; }
+    .product:nth-child(3) { animation-delay: 1.4s; }
+    .product:nth-child(4) { animation-delay: 1.6s; }
+
+    @keyframes productReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Cantos decorativos */
+    .product::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      border-top: 3px solid var(--aged-gold);
+      border-left: 3px solid var(--aged-gold);
+      opacity: 0.5;
+      transition: all 0.4s ease;
+    }
+
+    .product::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      border-bottom: 3px solid var(--aged-gold);
+      border-right: 3px solid var(--aged-gold);
+      opacity: 0.5;
+      transition: all 0.4s ease;
+    }
+
+    .product:hover::before,
+    .product:hover::after {
+      width: 60px;
+      height: 60px;
+      opacity: 1;
+    }
+
+    .product:hover {
+      background: linear-gradient(135deg, rgba(184, 115, 51, 0.15), rgba(205, 127, 50, 0.2));
+      border-color: var(--aged-gold);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 
+        0 20px 50px rgba(212, 175, 55, 0.3),
+        0 0 40px rgba(205, 127, 50, 0.2),
+        inset 0 0 30px rgba(212, 175, 55, 0.1);
+    }
+
+    .product h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--aged-gold);
+      font-weight: 600;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .product a {
+      text-decoration: none;
+      color: var(--cream-silk);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--copper-rust);
+      transition: all 0.3s ease;
+      display: inline-block;
+      position: relative;
+    }
+
+    .product a::after {
+      content: '→';
+      margin-left: 8px;
+      transition: margin-left 0.3s ease;
+    }
+
+    .product a:hover {
+      color: var(--aged-gold);
+      border-bottom-color: var(--aged-gold);
+    }
+
+    .product a:hover::after {
+      margin-left: 15px;
+    }
+
+    /* Divisor decorativo */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--aged-gold), transparent);
+      margin: 80px 0;
+      position: relative;
+    }
+
+    .divider::after {
+      content: '✦';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--burnt-wood);
+      color: var(--aged-gold);
+      padding: 0 15px;
+      font-size: 1.2rem;
+    }
+
+    footer {
+      margin-top: auto;
+      padding-top: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--smoky-grey);
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+      padding-top: 30px;
+      flex-wrap: wrap;
+      gap: 15px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-out 1.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    footer a {
+      color: var(--copper-rust);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    footer a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--aged-gold);
+      transition: width 0.3s ease;
+    }
+
+    footer a:hover {
+      color: var(--aged-gold);
+    }
+
+    footer a:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 1200px) {
+      main {
+        padding: 80px 8%;
+      }
+
+      header h1 {
+        font-size: 4rem;
+        letter-spacing: 8px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .back-button {
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        font-size: 0.85rem;
+      }
+
+      .logo {
+        top: 20px;
+        right: 20px;
+        width: 70px;
+      }
+
+      main {
+        padding: 80px 7%;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        letter-spacing: 6px;
+      }
+
+      header h1::after {
+        width: 120px;
+      }
+
+      header p {
+        font-size: 1.15rem;
+      }
+
+      .section h2 {
+        font-size: 2.2rem;
+        letter-spacing: 4px;
+      }
+
+      .section h2::before {
+        left: -35px;
+        font-size: 1.5rem;
+      }
+
+      .section p {
+        font-size: 1.1rem;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+      }
+
+      .section h2 {
+        font-size: 1.8rem;
+      }
+
+      .product {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="index.html" class="back-button">Voltar</a>
+  <img src="logo.png" alt="Straw Logo" class="logo">
+
+  <main>
+    <header>
+      <h1>Moda</h1>
+      <p>
+        A moda Straw é construída a partir de símbolos, texturas e referências culturais.
+        Cada peça existe para comunicar identidade, não excesso.
+      </p>
+    </header>
+
+    <section class="section">
+      <h2>Curadoria</h2>
+      <p>
+        Esta seleção reúne peças que dialogam com presença, estética e versatilidade,
+        respeitando uma construção visual crua e simbólica.
+      </p>
+
+      <div class="products">
+        <div class="product">
+          <h3>Camisetas Oversized</h3>
+          <a href="https://www.amazon.com.br/Camiseta-Oversized-Masculina-Streetwear-Penteado/dp/B0FTCDSJ8K?content-id=amzn1.sym.7d2cb2dd-fe35-477b-a1de-d6ea95cca871%3Aamzn1.sym.7d2cb2dd-fe35-477b-a1de-d6ea95cca871&cv_ct_cx=camisas&keywords=camisas&pd_rd_i=B0FTCDSJ8K&pd_rd_r=7275c8eb-96a1-41f6-a43a-37eea0933140&pd_rd_w=WyzJq&pd_rd_wg=tf2QI&pf_rd_p=7d2cb2dd-fe35-477b-a1de-d6ea95cca871&pf_rd_r=TVDAREVS2FE5B7AMTSWN&qid=1769536243&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=1-4-fc613efb-89a5-4ecc-a266-4feb7aba5db9-spons&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9&aref=PSlTAbcV7J&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&th=1&psc=1&linkCode=ll2&tag=andrey1bacela-20&linkId=1f9265c2193593dc47ba7f6ac85c80aa&ref_=as_li_ss_tl" target="_blank" rel="noopener">Ver produto</a>
+        </div>
+        <div class="product">
+          <h3>Estética Street</h3>
+          <a href="https://mercadolivre.com/sec/25LBdnm" target="_blank" rel="noopener">Ver produto</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <footer>
+      <span>© 2026 — Straw</span>
+      <span>
+        <a href="privacidade.html">Política de Privacidade</a> •
+        <a href="termos.html">Termos de Uso</a> •
+        Versão Beta
+      </span>
+    </footer>
+  </main>
+</body>
+</html>
