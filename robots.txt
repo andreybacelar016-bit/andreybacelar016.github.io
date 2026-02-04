@@ -1,16 +1,25 @@
-# Robots.txt para Straw
-# Otimizado para SEO - Andrey Bacelar
+# robots.txt para andreybacelar016.github.io
+# Otimizado para SEO e indexação do Google
 
-User-agent: andreybacelar016-bit
+# Permitir acesso a todos os crawlers
+User-agent: *
 Allow: /
+
+# Permitir especificamente o Google
+User-agent: Googlebot
+Allow: /
+
+# Permitir Googlebot de Imagens
+User-agent: Googlebot-Image
+Allow: /
+
+# Bloquear arquivos e diretórios desnecessários
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /README.md
 
 # Sitemap
 Sitemap: https://andreybacelar016.github.io/sitemap.xml
 
-# Crawl-delay (evita sobrecarga)
-Crawl-delay: 1
-
-# Otimização para Mobile
-User-agent: Googlebot-Mobile
-Allow: /
-
+# Crawl-delay (opcional, para evitar sobrecarga)
+# Crawl-delay: 1
