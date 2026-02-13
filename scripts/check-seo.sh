@@ -61,11 +61,14 @@ if [ -f "$ROOT_DIR/README.md" ]; then
   if grep -q 'role="contentinfo"' "$ROOT_DIR/README.md"; then
     echo "README declara requirement role=\"contentinfo\" — validando presença nos footers"
     missing=0
-    # procura footers sem role
-    if grep -Rnl --line-number -e '<footer[^>]*>' "$ROOT_DIR" | grep -qv 'role='; then
-      echo "Aviso: existem footers sem role=\"contentinfo\""
-      missing=1
-    fi
+    # procura linhas com tag <footer> e valida se cada uma contém role="contentinfo"
+    while IFS= read -r match; do
+      if ! echo "$match" | grep -q 'role="contentinfo"'; then
+        echo "Footer sem role=\"contentinfo\" encontrado: $match"
+        missing=1
+      fi
+    done < <(grep -Rn --line-number --include='*.html' -e '<footer' "$ROOT_DIR" || true)
+
     [ $missing -eq 0 ] || fail "Alguns footers não possuem role=\"contentinfo\""
   else
     echo "README não requer role=contentinfo (ou não encontrado) — pulando validação relacionada"
