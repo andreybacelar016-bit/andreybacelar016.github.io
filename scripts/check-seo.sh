@@ -63,8 +63,20 @@ if [ -f "$ROOT_DIR/README.md" ]; then
     missing=0
     # procura linhas com tag <footer> e valida se cada uma contém role="contentinfo"
     while IFS= read -r match; do
-      if ! echo "$match" | grep -q 'role="contentinfo"'; then
-        echo "Footer sem role=\"contentinfo\" encontrado: $match"
+      file="$(echo "$match" | cut -d: -f1)"
+      lineno="$(echo "$match" | cut -d: -f2)"
+      # concat lines from the opening <footer until we find a closing '>' or reach a limit
+      footer_open=""
+      max_lines=10
+      for i in $(seq 0 $max_lines); do
+        line=$(sed -n "$((lineno + i))p" "$file" || true)
+        footer_open="$footer_open $line"
+        if echo "$line" | grep -q '>'; then
+          break
+        fi
+      done
+      if ! echo "$footer_open" | grep -q 'role="contentinfo"'; then
+        echo "Footer sem role=\"contentinfo\" encontrado em $file:$lineno -> ${footer_open//\n/ }"
         missing=1
       fi
     done < <(grep -Rn --line-number --include='*.html' -e '<footer' "$ROOT_DIR" || true)
