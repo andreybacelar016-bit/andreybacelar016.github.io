@@ -1,0 +1,25 @@
+name: Check SEO
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  seo-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libxml2-utils
+
+      - name: Make script executable
+        run: chmod +x scripts/check-seo.sh
+
+      - name: Run SEO checks
+        run: ./scripts/check-seo.sh
