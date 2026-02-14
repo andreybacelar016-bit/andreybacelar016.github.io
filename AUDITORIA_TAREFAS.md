@@ -1,29 +1,48 @@
-# Auditoria rápida da base e tarefas sugeridas
+# Auditoria da base — tarefas sugeridas
 
-## 1) Corrigir erro de digitação (URL malformada no sitemap)
-- **Problema encontrado:** A URL da página inicial no `sitemap.xml` está com `https:/` (uma barra), em vez de `https://`.
-- **Evidência:** `https:/Straiw.github.io/` em `sitemap.xml`.
-- **Tarefa sugerida:** Corrigir a entrada `<loc>` da home para `https://Straiw.github.io/`.
-- **Critério de aceite:** `xmllint --noout sitemap.xml` não retorna erro e todas as entradas `<loc>` começam com `https://`.
+> Documento revisado para remover ambiguidades e alinhar os achados com o estado atual do repositório.
 
-## 2) Corrigir bug (imagem Open Graph inconsistente com o domínio do site)
-- **Problema encontrado:** A meta tag `og:image` da home aponta para outro domínio (`andreybacelar016.github.io`), diferente do domínio principal do projeto.
-- **Evidência:** `index.html` usa `https://andreybacelar016.github.io/logo.png` em `og:image`, enquanto as demais URLs canônicas usam `Straiw.github.io`.
-- **Tarefa sugerida:** Atualizar `og:image` para `https://Straiw.github.io/logo.png` e validar preview social.
-- **Critério de aceite:** Todas as meta tags sociais (`og:*` e `twitter:*`) da home referenciam assets válidos no domínio atual.
+## 1) Corrigir erro de digitação no `sitemap.xml` (alta prioridade)
+- **Achado:** A URL da home está malformada (`https:/` com uma barra).
+- **Onde:** `<loc>https:/Straiw.github.io/</loc>`.
+- **Impacto:** Pode prejudicar indexação da URL raiz por buscadores.
+- **Tarefa:** Ajustar para `https://Straiw.github.io/`.
+- **Critério de aceite:**
+  - Todas as entradas `<loc>` do `sitemap.xml` começam com `https://`.
+  - `xmllint --noout sitemap.xml` finaliza sem erro.
 
-## 3) Ajustar documentação (checklist no README não condiz com o HTML atual)
-- **Problema encontrado:** O README afirma que há `Footer com role="contentinfo"`, mas os `<footer>` das páginas não possuem esse atributo.
-- **Evidência:** Declaração no checklist de acessibilidade no `README.md` e ausência de `role="contentinfo"` nos arquivos HTML.
-- **Tarefa sugerida:** Escolher uma das opções:
-  1. Atualizar os `<footer>` para incluir `role="contentinfo"`; ou
-  2. Ajustar o README para refletir o estado real do código.
-- **Critério de aceite:** Documentação e implementação ficam consistentes entre si.
+## 2) Corrigir inconsistência de metadado social (`og:image`) (média prioridade)
+- **Achado:** A home usa `og:image` com domínio diferente (`andreybacelar016.github.io`).
+- **Onde:** `index.html` em `<meta property="og:image" ...>`.
+- **Impacto:** Preview social pode apontar para asset externo não controlado pelo projeto.
+- **Tarefa:** Padronizar para `https://Straiw.github.io/logo.png`.
+- **Critério de aceite:**
+  - `og:image` e `twitter:image` apontam para domínio oficial do projeto.
+  - Preview social da home carrega imagem corretamente.
 
-## 4) Melhorar testes (adicionar validação automatizada básica de SEO/estrutura)
-- **Problema encontrado:** Não há rotina automatizada para validar regressões simples (URLs quebradas em sitemap/metatags e consistência de atributos de acessibilidade declarados).
-- **Tarefa sugerida:** Criar um script de checagem (ex.: `scripts/check-seo.sh`) para:
-  - Validar `sitemap.xml`;
-  - Verificar `https://` em `loc`, `canonical`, `og:url`, `twitter:url`;
-  - Verificar que claims do README (como `role="contentinfo"`) batem com o HTML.
-- **Critério de aceite:** O script retorna código de saída não-zero quando encontra inconsistências e pode ser executado em CI localmente.
+## 3) Corrigir discrepância entre README e implementação de acessibilidade (média prioridade)
+- **Achado:** README afirma `Footer com role="contentinfo"`, mas os HTMLs usam `<footer>` sem esse atributo.
+- **Onde:** item de checklist no `README.md` e páginas HTML (`index.html`, `moda.html`, `maquiagem.html`, `privacidade.html`, `termos.html`).
+- **Impacto:** Documentação inconsistente gera dúvida para manutenção e revisão.
+- **Tarefa (escolher 1):**
+  1. Atualizar todos os `<footer>` para incluir `role="contentinfo"`; **ou**
+  2. Ajustar o item do README para refletir o comportamento real.
+- **Critério de aceite:** README e HTML descrevem/implementam o mesmo padrão.
+
+## 4) Melhorar testes com validação automatizada de SEO/consistência (média prioridade)
+- **Achado:** Não existe checagem automatizada para evitar regressões simples de SEO e documentação.
+- **Tarefa:** Criar script (ex.: `scripts/check-seo.sh`) com validações mínimas:
+  - Integridade XML do `sitemap.xml`.
+  - URLs com `https://` em `sitemap.xml`, `canonical`, `og:url`, `twitter:url`.
+  - Consistência entre claims do README e marcação HTML (ex.: `contentinfo`).
+- **Critério de aceite:**
+  - Script retorna `0` quando tudo está correto.
+  - Script retorna código diferente de `0` quando encontrar inconsistências.
+
+---
+
+## Ordem recomendada de execução
+1. Tarefa 1 (corrige indexação básica).
+2. Tarefa 2 (corrige metadados sociais).
+3. Tarefa 3 (alinha documentação com implementação).
+4. Tarefa 4 (evita regressão futura).
