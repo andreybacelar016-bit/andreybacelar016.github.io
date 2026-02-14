@@ -1,4 +1,4 @@
-# robots.txt para Straiw.github.io
+# robots.txt para andreybacelar016-bit.github.io/Straiw.github.io/
 # Otimizado para SEO e indexação do Google
 
 User-agent: *
@@ -9,4 +9,4 @@ Allow: /sitemap.xml
 Disallow: /README.md
 
 # Sitemap
-Sitemap: https://Straiw.github.io/sitemap.xml
+Sitemap: https://andreybacelar016-bit.github.io/Straiw.github.io/sitemap.xml
